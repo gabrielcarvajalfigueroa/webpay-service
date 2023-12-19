@@ -9,7 +9,7 @@ async function bootstrap() {
     options: {
       package: 'webpay',
       protoPath: join(__dirname, '../src/webpay.proto'),
-      url: '0.0.0.0:3000',
+      url: '0.0.0.0:50054',
     },
   });
 
