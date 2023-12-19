@@ -1,0 +1,41 @@
+// webpay.proto
+syntax = "proto3";
+
+package webpay;
+
+service WebpayService {
+  rpc CreatePayment (PaymentRequest) returns (PaymentResponse);
+  rpc CommitPayment (CommitRequest) returns (CommitResponse);
+}
+
+message PaymentRequest {
+  string amount = 1;
+  string description = 2;
+}
+
+message PaymentResponse {
+  string url = 1;
+}
+
+message CommitRequest{
+  string token = 1;
+}
+
+message CardDetail {
+  string card_number = 1;
+}
+
+message CommitResponse {
+  string vci = 1;
+  double amount = 2;
+  string status = 3;
+  string buy_order = 4;
+  string session_id = 5;
+  CardDetail card_detail = 6;
+  string accounting_date = 7;
+  string transaction_date = 8;
+  string authorization_code = 9;
+  string payment_type_code = 10;
+  int32 response_code = 11;
+  int32 installments_number = 12;
+}
